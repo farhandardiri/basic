@@ -27,7 +27,12 @@
             <input type="text" v-model="name">
         </p>
         <ul>
-            <li v-for="item of kelas" v-text="item"></li>
+            <li v-for="(item, index) of kelas">{{ index+1 }} - {{ item }}</li>
+        </ul>
+
+        <h3>Perulangan (1-5)</h3>
+        <ul>
+            <li v-for=" x in 5">{{ x }}</li>
         </ul>
         <p>{{ kelas }}</p>
         <div>
