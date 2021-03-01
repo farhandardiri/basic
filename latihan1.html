@@ -18,7 +18,7 @@
     <header>
         <img src="image/vue.png" width="80" alt="">
         <h1>{{ getname() }}</h1>
-        <h1>{{ bilangan }}</h1>
+        <h1 v-text="name.toUpperCase()"></h1>
         <p v-html="link"></p>
         <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
         <h2>{{ namaLengkap }}</h2>
