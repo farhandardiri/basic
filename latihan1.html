@@ -18,7 +18,7 @@
     <header>
         <img src="image/vue.png" width="80" alt="">
         <h1>Hello world</h1>
-        <h3 v-once>{{ name }}</h3>
+        <h3 v-once>{{ getname() }}</h3>
         <p>tutorial vue js</p>
     </header>
 
@@ -31,11 +31,17 @@
         const member = {
             //   string, number, boolean, array, object
             name : 'panggil aku BlinK',
-            nim : "15014027"
-          }
+            nim : "15014027",
+        }
+      
       const vm =  new Vue({
           el : '#app',
-          data : member
+          data : member,
+          methods : {
+            getname : function() {
+                return 'Hello, ' +this.name
+            }
+        }
       })
     </script>
 </body>
