@@ -18,9 +18,13 @@
     <header>
         <img src="image/vue.png" width="80" alt="">
         <h1 v-text="name.toUpperCase()"></h1>
+        <h3 v-text="bilangan"></h3>
+        <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
+        <p>
+            <button  @click="hendleclick">click</button>
+        </p>
         <img :src="gambar" width="500" alt="">
         <p v-html="link"></p>
-        <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
         <h2>{{ namaLengkap }}</h2>
         <h4>tutorial vue js</h4>
     </header>
@@ -40,7 +44,7 @@
             qty : 5,
             namaDepan : 'Farhan ',
             namaBelakang : 'Dardiri',
-            bilangan : 21,
+            bilangan : 1,
             link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>',
             gambar : 'image/vue1.png'
           },
@@ -51,6 +55,10 @@
             ubahNama : function(namaBaru){
                 this.name = namaBaru
                 return this.getname()
+            },
+            hendleclick : function(){
+                this.bilangan++
+                this.gambar = 'image/react.png'
             }
         },
         computed : {
