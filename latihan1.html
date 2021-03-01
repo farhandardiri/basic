@@ -22,9 +22,19 @@
    <div id="app">
     <header>
         <img src="image/vue.png" width="80" alt="">
-        <h1 v-text="name.toUpperCase()"></h1>
-        <h3 v-text="bilangan"></h3>
-        <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
+        <h1 v-text="name"></h1>
+        <p>
+            <input type="text" v-model="name">
+        </p>
+        <p>{{ kelas }}</p>
+        <div>
+            <label for=""><input type="checkbox" value="React" v-model="kelas"> React</label>
+            <label for=""><input type="checkbox" value="Vuejs" v-model="kelas"> Vuejs</label>
+            <label for=""><input type="checkbox" value="Angular" v-model="kelas">  Angular</label>
+        </div>
+        <!-- <h1 v-text="name.toUpperCase()"></h1> -->
+        <!-- <h3 v-text="bilangan"></h3>
+        <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p> -->
         <p>
             <button @click="hendleclick">click</button>
         </p>
@@ -54,7 +64,8 @@
             bilangan : 1,
             link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>',
             gambar : 'image/vue1.png',
-            menu : 'home'
+            menu : 'home',
+            kelas : []
           },
         methods : {
             getname : function(){
