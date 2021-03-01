@@ -34,6 +34,12 @@
         <ul>
             <li v-for=" x in 5">{{ x }}</li>
         </ul>
+        <h3>Mencari bilangan genap : {{ numbers }}</h3>
+        <ul>
+            <li v-for=" x in caribilangangenap(numbers)">{{ x }}</li>
+        </ul>
+
+
         <p>{{ kelas }}</p>
         <div>
             <label for=""><input type="checkbox" value="React" v-model="kelas"> React</label>
@@ -73,7 +79,8 @@
             link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>',
             gambar : 'image/vue1.png',
             menu : 'home',
-            kelas : ['Golang','PHP','Phyton']
+            kelas : ['Golang','PHP','Phyton'],
+            numbers : [1, 2, 3, 4, 5]
           },
         methods : {
             getname : function(){
@@ -86,6 +93,11 @@
             hendleclick : function(){
                 this.bilangan++
                 this.gambar = 'image/react.png'
+            },
+            caribilangangenap : function(data){
+                return data.filter(angka => {
+                    return angka % 2 == 0
+                })
             }
         },
         computed : {
