@@ -11,6 +11,11 @@
         margin: 5%;
         font-family: 'Quicksand',sans-serif;
     }
+    .active {
+        background:greenyellow;
+        border: 0;
+        padding: 5px;
+    }
 </style>
 </head>
 <body>
@@ -21,12 +26,14 @@
         <h3 v-text="bilangan"></h3>
         <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
         <p>
-            <button  @click="hendleclick">click</button>
+            <button @click="hendleclick">click</button>
         </p>
         <img :src="gambar" width="500" alt="">
         <p v-html="link"></p>
-        <h2>{{ namaLengkap }}</h2>
         <h4>tutorial vue js</h4>
+        <button :class="{active: menu === 'home'}" @click="menu = 'home' ">Home</button>
+        <button :class="{active: menu === 'about'}" @click="menu = 'about' ">About</button>
+        <button :class="{active: menu === 'blog'}" @click="menu = 'blog' ">Blog</button>
     </header>
 
     <footer id="footer">
@@ -46,7 +53,8 @@
             namaBelakang : 'Dardiri',
             bilangan : 1,
             link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>',
-            gambar : 'image/vue1.png'
+            gambar : 'image/vue1.png',
+            menu : 'home'
           },
         methods : {
             getname : function(){
