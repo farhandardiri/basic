@@ -17,9 +17,10 @@
    <div id="app">
     <header>
         <img src="image/vue.png" width="80" alt="">
-        <h1>Hello world</h1>
-        <h3>{{ namaLengkap }}</h3>
-        <p>tutorial vue js</p>
+        <h1>{{ bilangan }}</h1>
+        <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
+        <h2>{{ namaLengkap }}</h2>
+        <h4>tutorial vue js</h4>
     </header>
 
     <footer id="footer">
@@ -36,23 +37,27 @@
             nim : "15014027",
             qty : 5,
             namaDepan : 'Farhan ',
-            namaBelakang : 'Dardiri'
+            namaBelakang : 'Dardiri',
+            bilangan : 3
           },
         methods : {
-            getname : function() {
+            getname : function(){
                 return 'Hello, ' +this.name
             },
-            ubahNama : function(namaBaru) {
+            ubahNama : function(namaBaru){
                 this.name = namaBaru
                 return this.getname()
             }
         },
         computed : {
-            totalBayar : function() {
+            totalBayar : function(){
                 return this.qty * 10000
             },
             namaLengkap : function(){
                 return this.namaDepan + this.namaBelakang
+            },
+            infoBilangan : function(){
+                return this.bilangan%2 === 0 ? "Genap" : "Ganjil"
             }
         }
       })
