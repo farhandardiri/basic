@@ -17,7 +17,9 @@
    <div id="app">
     <header>
         <img src="image/vue.png" width="80" alt="">
+        <h1>{{ getname() }}</h1>
         <h1>{{ bilangan }}</h1>
+        <p v-html="link"></p>
         <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
         <h2>{{ namaLengkap }}</h2>
         <h4>tutorial vue js</h4>
@@ -38,7 +40,8 @@
             qty : 5,
             namaDepan : 'Farhan ',
             namaBelakang : 'Dardiri',
-            bilangan : 3
+            bilangan : 21,
+            link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>'
           },
         methods : {
             getname : function(){
