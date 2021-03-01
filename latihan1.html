@@ -17,8 +17,8 @@
    <div id="app">
     <header>
         <img src="image/vue.png" width="80" alt="">
-        <h1>{{ getname() }}</h1>
         <h1 v-text="name.toUpperCase()"></h1>
+        <img :src="gambar" width="500" alt="">
         <p v-html="link"></p>
         <p>Bilangan di atas adalah bilangan {{ infoBilangan }}</p>
         <h2>{{ namaLengkap }}</h2>
@@ -41,7 +41,8 @@
             namaDepan : 'Farhan ',
             namaBelakang : 'Dardiri',
             bilangan : 21,
-            link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>'
+            link : '<a href="https://www.facebook.com/farhan.da.3">Farhan</a>',
+            gambar : 'image/vue1.png'
           },
         methods : {
             getname : function(){
