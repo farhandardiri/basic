@@ -23,8 +23,10 @@
     <header>
         <img src="image/vue.png" width="80" alt="">
         <h1 v-text="name"></h1>
+
+        <h3>Form Submit</h3>
         <p>
-            <input type="text" v-model="name">
+            <input type="text" placeholder="Nama Kelas" @keyup.enter="submit">
         </p>
         <h3>Daftar Kelas ({{ kelas.length }})</h3>
 
@@ -107,6 +109,13 @@
             },
             gantimenu : function(data){
                 this.menu = data
+            },
+            submit : function(event){
+                let text = event.target.value
+                // console.log(text)
+                this.kelas.unshift(text)
+                // push menambahkan data di akhir array
+                event.target.value = ""
             }
         },
         computed : {
