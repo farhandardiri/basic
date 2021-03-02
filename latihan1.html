@@ -61,9 +61,9 @@
         <img :src="gambar" width="500" alt="">
         <p v-html="link"></p>
         <h4>tutorial vue js</h4>
-        <a :class="{active: menu === 'home'}" href="#" @click="gantimenu('home', $event)">Home</a>
-        <a :class="{active: menu === 'about'}" href="#" @click="gantimenu('about', $event)">About</a>
-        <a :class="{active: menu === 'blog'}" href="#" @click="gantimenu('blog', $event)">Blog</a>
+        <a :class="{active: menu === 'home'}" href="#" @click.prevent="gantimenu('home')">Home</a>
+        <a :class="{active: menu === 'about'}" href="#" @click.prevent="gantimenu('about')">About</a>
+        <a :class="{active: menu === 'blog'}" href="#" @click.prevent="gantimenu('blog')">Blog</a>
     </header>
 
     <footer id="footer">
@@ -105,9 +105,7 @@
                     return angka % 2 == 0
                 })
             },
-            gantimenu : function(data, event){
-                event.preventDefault();
-                console.log(event)
+            gantimenu : function(data){
                 this.menu = data
             }
         },
