@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
+    <title>Test</title>
+<style>
+    body{
+        margin: 5%;
+        font-family: 'Quicksand',sans-serif;
+    }
+    .active {
+        background:greenyellow;
+        border: 0;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+   <div id="app">
+   <header-component></header-component>
+    <main>
+        <h3>Tambah Kelas</h3>
+        <p>
+            <input type="text" placeholder="Nama Kelas" @keyup.enter="submit" v-model="kelasbaru">
+        </p>
+        <hr>
+        <h3>Daftar Kelas ({{ kelas.length }})</h3>
+        <template v-if="kelas.length >= 1">
+            <ul>
+                <li v-for="(item, index) of kelas">{{ index+1 }} - {{ item }}</li>
+            </ul>          
+        </template>
+        <li v-else>Kelas belum tersedia</li>
+    </main>
+
+    <footer-component></footer-component>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        Vue.component('header-component',{
+            template : `
+            <header>
+            <img src="image/vue.png" width="80" alt="">
+            <h1>tutorial vue js</h1>
+            </header>
+            `
+        })
+        Vue.component('footer-component',{
+            template : `
+            <footer id="footer">
+            <p>copyright 2021</p>
+            </footer>
+            `
+        })
+      const vm =  new Vue({
+        el : '#app',
+        data : {
+                //   string, number, boolean, array, object
+            kelas : ['Golang', 'PHP'],
+            kelasbaru : ""
+          },
+        methods : {
+            submit : function(event){
+                let text = event.target.value
+                // console.log(text)
+                this.kelas.unshift(this.kelasbaru)
+                // push menambahkan data di akhir array
+                this.kelasbaru = ""
+            }
+        },
+        computed : {
+        }
+      })
+    </script>
+</body>
+</html>
