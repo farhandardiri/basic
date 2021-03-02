@@ -26,7 +26,7 @@
 
         <h3>Form Submit</h3>
         <p>
-            <input type="text" placeholder="Nama Kelas" @keyup.enter="submit">
+            <input type="text" placeholder="Nama Kelas" @keyup.enter="submit" v-model="kelasbaru">
         </p>
         <h3>Daftar Kelas ({{ kelas.length }})</h3>
 
@@ -88,6 +88,7 @@
             gambar : 'image/vue1.png',
             menu : 'home',
             kelas : ['Golang', 'PHP'],
+            kelasbaru : "",
             numbers : [1, 2, 3, 4, 5]
           },
         methods : {
@@ -113,9 +114,9 @@
             submit : function(event){
                 let text = event.target.value
                 // console.log(text)
-                this.kelas.unshift(text)
+                this.kelas.unshift(this.kelasbaru)
                 // push menambahkan data di akhir array
-                event.target.value = ""
+                this.kelasbaru = ""
             }
         },
         computed : {
