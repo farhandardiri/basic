@@ -61,9 +61,9 @@
         <img :src="gambar" width="500" alt="">
         <p v-html="link"></p>
         <h4>tutorial vue js</h4>
-        <button :class="{active: menu === 'home'}" @click="menu = 'home' ">Home</button>
-        <button :class="{active: menu === 'about'}" @click="menu = 'about' ">About</button>
-        <button :class="{active: menu === 'blog'}" @click="menu = 'blog' ">Blog</button>
+        <a :class="{active: menu === 'home'}" href="#" @click="gantimenu('home', $event)">Home</a>
+        <a :class="{active: menu === 'about'}" href="#" @click="gantimenu('about', $event)">About</a>
+        <a :class="{active: menu === 'blog'}" href="#" @click="gantimenu('blog', $event)">Blog</a>
     </header>
 
     <footer id="footer">
@@ -104,6 +104,11 @@
                 return data.filter(angka => {
                     return angka % 2 == 0
                 })
+            },
+            gantimenu : function(data, event){
+                event.preventDefault();
+                console.log(event)
+                this.menu = data
             }
         },
         computed : {
